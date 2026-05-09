@@ -55,6 +55,34 @@ export const customers = pgTable("customers", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+export const receipts = pgTable("receipts", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  tenantId: uuid("tenant_id").notNull().references(() => tenants.id),
+  scannedBy: text("scanned_by").notNull(),
+  imageUrl: text("image_url").notNull(),
+  vendor: text("vendor"),
+  total: numeric("total", { precision: 10, scale: 2 }),
+  status: text("status", { enum: ["pending", "confirmed"] }).notNull().default("pending"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const receiptLineItems = pgTable("receipt_line_items", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  receiptId: uuid("receipt_id").notNull().references(() => receipts.id),
+  name: text("name").notNull(),
+  quantity: numeric("quantity", { precision: 10, scale: 2 }),
+  unitPrice: numeric("unit_price", { precision: 10, scale: 2 }),
+});
+
+export const expenses = pgTable("expenses", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  tenantId: uuid("tenant_id").notNull().references(() => tenants.id),
+  receiptId: uuid("receipt_id").references(() => receipts.id),
+  vendor: text("vendor"),
+  total: numeric("total", { precision: 10, scale: 2 }).notNull(),
+  date: timestamp("date").notNull().defaultNow(),
+});
+
 export const reservations = pgTable("reservations", {
   id: uuid("id").primaryKey().defaultRandom(),
   tenantId: uuid("tenant_id").notNull().references(() => tenants.id),
