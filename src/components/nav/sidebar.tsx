@@ -11,6 +11,7 @@ import {
   ScanLine,
   BarChart2,
   ShoppingCart,
+  Settings,
 } from "lucide-react";
 
 const links = [
@@ -22,6 +23,7 @@ const links = [
   { href: "/dashboard/inventory", label: "Inventory", icon: Package },
   { href: "/dashboard/inventory/shopping-list", label: "Shopping List", icon: ShoppingCart },
   { href: "/dashboard/receipts", label: "Receipts", icon: ScanLine },
+  { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
 export function Sidebar() {

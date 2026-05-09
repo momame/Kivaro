@@ -96,3 +96,12 @@ export const reservations = pgTable("reservations", {
   noShowScore: numeric("no_show_score", { precision: 3, scale: 2 }),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
+
+export const invites = pgTable("invites", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  tenantId: uuid("tenant_id").notNull().references(() => tenants.id),
+  email: text("email").notNull(),
+  token: text("token").notNull().unique(),
+  usedAt: timestamp("used_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
