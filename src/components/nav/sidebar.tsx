@@ -9,10 +9,12 @@ import {
   Users,
   Package,
   ScanLine,
+  BarChart2,
 } from "lucide-react";
 
 const links = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/dashboard/sales", label: "Sales", icon: BarChart2 },
   { href: "/dashboard/reservations", label: "Reservations", icon: CalendarDays },
   { href: "/dashboard/menu", label: "Menu", icon: UtensilsCrossed },
   { href: "/dashboard/customers", label: "Customers", icon: Users },
