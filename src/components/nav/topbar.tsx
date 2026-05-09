@@ -14,7 +14,7 @@ export function Topbar({ title, restaurantName }: TopbarProps) {
           <p className="text-xs text-slate-400 mt-0.5">{restaurantName}</p>
         )}
       </div>
-      <UserButton afterSignOutUrl="/" />
+      <UserButton />
     </header>
   );
 }
