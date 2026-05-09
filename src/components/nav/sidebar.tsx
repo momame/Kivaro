@@ -10,6 +10,7 @@ import {
   Package,
   ScanLine,
   BarChart2,
+  ShoppingCart,
 } from "lucide-react";
 
 const links = [
@@ -19,6 +20,7 @@ const links = [
   { href: "/dashboard/menu", label: "Menu", icon: UtensilsCrossed },
   { href: "/dashboard/customers", label: "Customers", icon: Users },
   { href: "/dashboard/inventory", label: "Inventory", icon: Package },
+  { href: "/dashboard/inventory/shopping-list", label: "Shopping List", icon: ShoppingCart },
   { href: "/dashboard/receipts", label: "Receipts", icon: ScanLine },
 ];
 
